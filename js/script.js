@@ -41,6 +41,9 @@ for(let  key in images){
 }
 const allItems = document.querySelectorAll('.item');
 console.log(allItems);
+//seleziono le miniature
+const allThumbNail = document.querySelectorAll('.img-container');
+console.log(allThumbNail) 
 
 //dichiaro la classe che attiva l'elemento
 let activeItem= 0;
