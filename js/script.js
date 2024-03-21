@@ -21,3 +21,23 @@ const images = [
         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
 ];
+//creo elemento da appendere con le informazioni dentro
+
+//scorro elementi images array
+
+for(let  key in images){
+    let thisObject = images[key];
+    let myDiv = `
+    <div class="item">
+        <img src=${thisObject.image} alt="">
+        <div class="text-container">
+            <h1>${thisObject.title}</h1>
+            <p>${thisObject.text}</p>
+        </div>
+    </div>
+    `
+    console.log(myDiv);
+    document.querySelector('.col-big').innerHTML += myDiv;
+}
+const allItems = document.querySelectorAll('.item');
+console.log(allItems)
