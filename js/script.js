@@ -28,7 +28,7 @@ const images = [
 for(let  key in images){
     let thisObject = images[key];
     let myDiv = `
-    <div class="item">
+    <div class="item d-none">
         <img src=${thisObject.image} alt="">
         <div class="text-container">
             <h1>${thisObject.title}</h1>
@@ -36,8 +36,43 @@ for(let  key in images){
         </div>
     </div>
     `
-    console.log(myDiv);
+
     document.querySelector('.col-big').innerHTML += myDiv;
 }
 const allItems = document.querySelectorAll('.item');
-console.log(allItems)
+console.log(allItems);
+
+//dichiaro la classe che attiva l'elemento
+let activeItem= 0;
+//seleziono l'elemento
+let thisItem = allItems[activeItem];
+thisItem.classList.add('active')
+//seleziono il bottone next 
+const nextButton = document.querySelector('.fa-arrow-down');
+console.log(nextButton)
+nextButton.addEventListener('click', function() {
+    document.querySelector('.item.active').classList.remove('active')
+    if(activeItem < allItems.length - 1) {
+        activeItem++;
+    } else {
+        activeItem = 0;
+    }
+
+    allItems[activeItem].classList.add('active');
+
+
+
+})
+const previousButton = document.querySelector('.fa-arrow-up');
+
+previousButton.addEventListener('click', function() {
+    document.querySelector('.item.active').classList.remove('active')
+    if(activeItem > 0) {
+        activeItem--;
+    } else {
+        activeItem = allItems.length - 1;
+    }
+
+    allItems[activeItem].classList.add('active');
+
+})
