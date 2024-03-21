@@ -45,16 +45,20 @@ console.log(allItems);
 const allThumbNail = document.querySelectorAll('.img-container');
 console.log(allThumbNail) 
 
+
 //dichiaro la classe che attiva l'elemento
 let activeItem= 0;
 //seleziono l'elemento
 let thisItem = allItems[activeItem];
+let thisThumbnail = allThumbNail[activeItem]
+
 thisItem.classList.add('active')
 //seleziono il bottone next 
 const nextButton = document.querySelector('.fa-arrow-down');
-console.log(nextButton)
 nextButton.addEventListener('click', function() {
     document.querySelector('.item.active').classList.remove('active')
+    allThumbNail[activeItem].classList.toggle('unactive');
+
     if(activeItem < allItems.length - 1) {
         activeItem++;
     } else {
@@ -62,6 +66,8 @@ nextButton.addEventListener('click', function() {
     }
 
     allItems[activeItem].classList.add('active');
+    allThumbNail[activeItem].classList.toggle('unactive');
+    
 
 
 
@@ -69,13 +75,17 @@ nextButton.addEventListener('click', function() {
 const previousButton = document.querySelector('.fa-arrow-up');
 
 previousButton.addEventListener('click', function() {
-    document.querySelector('.item.active').classList.remove('active')
+    document.querySelector('.item.active').classList.remove('active');
+    allThumbNail[activeItem].classList.toggle('unactive');
     if(activeItem > 0) {
         activeItem--;
     } else {
         activeItem = allItems.length - 1;
     }
+    console.log(activeItem);
 
     allItems[activeItem].classList.add('active');
-
+    allThumbNail[activeItem].classList.toggle('unactive');
+    
+console.log(previousButton)
 })

@@ -53,10 +53,12 @@ img{
 
 .fa-solid.fa-arrow-up{
     top:0;
+    z-index: 600;
 }
 
 .fa-solid.fa-arrow-down{
     bottom:0;
+    z-index: 600;
 }
 #container{
     padding: 100px;
